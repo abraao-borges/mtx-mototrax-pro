@@ -1,121 +1,160 @@
-/* General Styles */
+/* General */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
     background-color: #121212;
     color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;       /* center everything */
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
+    width: 85%;
+    margin: auto;
 }
 
-h2, h3 {
-    font-size: 24px;
-    color: #fff;
+/* Banner */
+.banner {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
 }
 
-/* Header Styles */
-header {
-    background-color: #333;
-    padding: 20px 0;
-    text-align: center;
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-header .logo img {
-    max-width: 200px;
+/* Navigation */
+.nav {
+    margin: 20px auto;
 }
 
-header nav ul {
+.nav ul {
+    display: inline-flex;
+    gap: 0px;
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 0;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
+.nav li {
+    position: relative;  /* for submenu */
 }
 
-header nav ul li a {
+.nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-}
-
-/* Featured Mod Section */
-.featured-mod {
-    background-color: #222;
-    padding: 50px 0;
-}
-
-.featured-mod img {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    padding: 6px 10px;
     display: block;
 }
 
-.featured-mod .mod-description {
-    text-align: center;
-}
-
-.featured-mod .mod-description h2 {
-    font-size: 28px;
-}
-
-.featured-mod .mod-description .btn {
-    background-color: #ff9f00;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin-top: 20px;
-    display: inline-block;
-    border-radius: 5px;
-}
-
-/* Mods Gallery Section */
-.mods-gallery {
+/* Dropdown Submenu */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
     background-color: #1f1f1f;
-    padding: 40px 0;
+    border-radius: 6px;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;   /* vertical stack */
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.submenu li a {
+    padding: 6px 12px;
+}
+
+.submenu li a:hover {
+    background-color: #333;
+}
+
+.dropdown:hover .submenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Mod List */
+.mods-gallery {
+    padding: 30px 0;
+}
+
+.mods-gallery h2 {
+    margin-bottom: 20px;
 }
 
 .mod-card {
-    background-color: #333;
+    background: #1f1f1f;
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    margin: 20px;
+    padding: 15px;
+    margin: 10px auto;
     display: inline-block;
-    width: 30%;
+    width: 250px;        /* fixed width for simplicity */
+    text-align: center;
 }
 
 .mod-card img {
     width: 100%;
-    height: auto;
     border-radius: 5px;
 }
 
-.mod-card .btn {
-    background-color: #ff9f00;
+.btn {
+    display: inline-block;
+    background: #ff9f00;
+    padding: 6px 12px;
+    margin-top: 10px;
     color: #fff;
-    padding: 10px 20px;
     text-decoration: none;
-    margin-top: 15px;
     border-radius: 5px;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #333;
-    padding: 20px 0;
-    text-align: center;
+/* Contributors Page */
+.contributors {
+    padding: 40px 0;
 }
 
-footer .socials a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
+.contributors h2 {
+    margin-bottom: 25px;
+}
+
+.contrib-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.contrib-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.contrib-list img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;   /* optional: remove if you want square */
+}
+
+.name {
+    font-weight: bold;
+}
+
+.role {
+    opacity: 0.7;
+    margin-left: 6px;
 }
