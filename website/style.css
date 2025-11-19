@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2, h3 {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .logo img {
+    max-width: 200px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Featured Mod Section */
+.featured-mod {
+    background-color: #222;
+    padding: 50px 0;
+}
+
+.featured-mod img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+}
+
+.featured-mod .mod-description {
+    text-align: center;
+}
+
+.featured-mod .mod-description h2 {
+    font-size: 28px;
+}
+
+.featured-mod .mod-description .btn {
+    background-color: #ff9f00;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* Mods Gallery Section */
+.mods-gallery {
+    background-color: #1f1f1f;
+    padding: 40px 0;
+}
+
+.mod-card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    width: 30%;
+}
+
+.mod-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.mod-card .btn {
+    background-color: #ff9f00;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .socials a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
