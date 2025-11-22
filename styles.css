@@ -1,34 +1,48 @@
 /* General */
+html {
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
+    padding: 0;
     background-color: #121212;
     color: #fff;
     font-family: Arial, sans-serif;
-    text-align: center;       /* center everything */
+    text-align: center;
+    overflow-x: hidden;
 }
 
-.container {
-    width: 85%;
-    margin: auto;
-}
-
-/* Banner */
+/* BANNER LOGIC (Fixed width to 100vw for edge-to-edge stability) */
 .banner {
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
+    width: 100vw; 
+    max-width: 100%;
+    display: block;
+    line-height: 0;
 }
 
 .banner img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
-    object-position: center;
+}
+
+/* MAIN CONTAINER (Holds Nav and Gallery, centers them) */
+.container {
+    width: 85%;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation */
 .nav {
     margin: 20px auto;
+    width: 100%;
 }
 
 .nav ul {
@@ -37,17 +51,19 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav li {
-    position: relative;  /* for submenu */
+    position: relative;
 }
 
 .nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 6px 10px;
+    padding: 10px 15px;
     display: block;
 }
 
@@ -56,23 +72,25 @@ body {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(5px);
+    transform: translateX(-50%) translateY(10px);
     background-color: #1f1f1f;
+    border: 1px solid #333;
     border-radius: 6px;
     list-style: none;
     padding: 5px 0;
     margin: 0;
-
     display: flex;
-    flex-direction: column;   /* vertical stack */
-
+    flex-direction: column;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+    min-width: 120px;
 }
 
 .submenu li a {
-    padding: 6px 12px;
+    padding: 10px 15px;
+    text-align: center;
 }
 
 .submenu li a:hover {
@@ -85,38 +103,77 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
-/* Mod List */
+/* Mods Gallery Wrapper (Centering is handled here) */
 .mods-gallery {
+    width: 100%;
     padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    justify-content: center; /* Centers the cards horizontally */
+    gap: 25px; /* Keeps the spacing between the cards */
 }
 
-.mods-gallery h2 {
-    margin-bottom: 20px;
-}
-
+/* Card Design (Fixed Height and Uniformity) */
 .mod-card {
     background: #1f1f1f;
     border-radius: 10px;
-    padding: 15px;
-    margin: 10px auto;
-    display: inline-block;
-    width: 250px;        /* fixed width for simplicity */
+    padding-bottom: 15px;
+    height: 350px; 
+    width: 300px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+/* .mod-card:hover {
+    transform: translateY(-5px);
+} */
+
+.mod-card h3 {
+    height: 3em; 
+    line-height: 1.5em;
+    overflow: hidden;
+    margin-top: 15px;
     text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Description needs more vertical space */
+.mod-card p.mod-description {
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0 0 15px 0;
+    max-height: 9em; 
+    line-height: 1.5em; 
+    overflow: hidden; 
+    text-align: center;
+    width: 100%;
 }
 
 .mod-card img {
     width: 100%;
-    border-radius: 5px;
+    height: 150px;
+    object-fit: cover;
+    border-top: 5px;
 }
 
 .btn {
     display: inline-block;
     background: #ff9f00;
-    padding: 6px 12px;
-    margin-top: 10px;
+    padding: 8px 20px;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    margin-top: auto; 
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #e68a00;
 }
 
 /* Contributors Page */
@@ -124,15 +181,11 @@ body {
     padding: 40px 0;
 }
 
-.contributors h2 {
-    margin-bottom: 25px;
-}
-
 .contrib-list {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    width: fit-content;
+    display: inline-block;
 }
 
 .contrib-list li {
@@ -145,16 +198,34 @@ body {
 }
 
 .contrib-list img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;   /* optional: remove if you want square */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.name {
-    font-weight: bold;
-}
-
-.role {
-    opacity: 0.7;
-    margin-left: 6px;
+/* Mobile Adjustments (FIXED: Centering single card) */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+    
+    .mod-card {
+        /* NEW: Set a smaller width than 100% and use auto margins to center it */
+        width: 60%; 
+        margin: 0 auto; 
+        
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .mod-card img {
+        height: auto;
+        max-height: 250px;
+    }
+    
+    .mod-card p.mod-description {
+        height: auto;
+        max-height: 10em;
+    }
 }
