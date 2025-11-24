@@ -23,11 +23,19 @@ if (typeof modData !== 'undefined') {
         desc.className = 'mod-description'; 
 
         // Download Link Element (.btn)
+        // Inside your mod rendering function (mod-renderer.js)
+        const isAvailable = mod.isAvailable !== false; // Assume true if property is missing
+
+        // Create the download button
         const downloadLink = document.createElement('a');
-        downloadLink.href = mod.downloadLink; // Uses the link from the data
-        downloadLink.className = 'btn';
-        downloadLink.textContent = 'Download';
-        downloadLink.target = '_blank'; // Opens in a new tab
+        downloadLink.href = isAvailable ? mod.downloadUrl : '#';
+        downloadLink.textContent = isAvailable ? 'Download' : 'Unavailable';
+        downloadLink.classList.add('btn');
+
+        if (!isAvailable) {
+            // Add a class for styling and prevent clicks
+            downloadLink.classList.add('btn-unavailable'); 
+        }
 
         // 4. Assemble the card: append children to the modCard
         modCard.appendChild(img);

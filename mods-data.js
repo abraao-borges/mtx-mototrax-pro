@@ -1,14 +1,51 @@
 const modData = [
     {
-        name: "Caps mods",
+        name: "Hats mods",
         image: "images/mods/mod_hats.png",
         downloadLink: "https://drive.google.com/file/d/1Dzc6NQvdyNXqmjGzWJNc7yISm1f9N_9Z/view?usp=drive_link",
-        description: "New hats sections on helmet menu. Can choose between brand and brandless caps. Fully working in game. Automatically removes hair."
+        description: "New hats sections on helmet menu. Can choose between brand and brandless caps.",
+        isAvailable: true,
     },
     {
         name: "Mike Larocco Paddock",
         image: "images/mods/mod_mike_larocco_paddock.png",
-        downloadLink: "https://drive.google.com/file/d/12OXo4-rYc_WpabROxwtekCmaZYuwNoxR/view?usp=drive_link",
-        description: "Mike Larocco paddock model. Custom pose and textures."
-    }  
+        downloadLink: "https://drive.google.com/file/d/1g2t59haKDg1cGnTTkShcQkkl5kBzf1Pm/view?usp=drive_link",
+        description: "Mike Larocco paddock model. Custom pose and textures.",
+        isAvailable: true,
+    },
+    {
+        name: "James Stewart Paddock",
+        image: "images/mods/mod_james_stewart_paddock.png",
+        downloadLink: "https://drive.google.com/file/d/1pOfNaUyLPxj7gtKk9U5l3R0O0JbVmmVT/view?usp=drive_link",
+        description: "James Stewart paddock model. Custom pose and textures.",
+        isAvailable: true,
+    },  
+    {
+        name: "Motocross Brand Logos Pack",
+        image: "images/mods/mod_motocross_brand_logos.png",
+        downloadLink: "",
+        description: "Logo pack with popular motocross brands to customize your gear.",
+        isAvailable: false,
+    }, 
+    {
+        name: "MX Riders Logos Pack",
+        image: "images/mods/mod_motocross_mx_riders_logos.png",
+        downloadLink: "",
+        description: "MX Riders logo pack to customize your gear.",
+        isAvailable: false,
+    }, 
+    {
+        name: "Tradução para Português",
+        image: "images/mods/mod_translation_portuguese.png",
+        downloadLink: "",
+        description: "Dialogos com personagens, emails e menus traduzidos para português do Brasil.",
+        isAvailable: false,
+    }, 
+    {
+        name: "CRF450 Black Edition",
+        image: "images/mods/mod_crf450f_black_edition.png",
+        downloadLink: "https://drive.google.com/file/d/1gz2-so_lA7HdbL276pnZuW_lCpx7DlCa/view?usp=drive_link",
+        description: "Custom CRF450 Black Edition with black rims and black plastics.",
+        isAvailable: true,
+    }, 
 ];

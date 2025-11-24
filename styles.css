@@ -1,4 +1,4 @@
-/* General */
+/* 🏍️ General */
 html {
     overflow-x: hidden; 
     margin: 0;
@@ -12,10 +12,10 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
     text-align: center;
-    overflow-x: hidden;
+    overflow: visible;
 }
 
-/* BANNER LOGIC (Fixed width to 100vw for edge-to-edge stability) */
+/* 🖼️ BANNER LOGIC */
 .banner {
     width: 100vw; 
     max-width: 100%;
@@ -30,19 +30,20 @@ body {
     object-fit: cover;
 }
 
-/* MAIN CONTAINER (Holds Nav and Gallery, centers them) */
+/* 🏠 MAIN CONTAINER */
 .container {
     width: 85%;
     max-width: 1800px;
     margin: 0 auto;
-    display: flex;
+    display: block;
     flex-direction: column;
 }
 
-/* Navigation */
+/* 🧭 Navigation */
 .nav {
-    margin: 20px auto;
+    margin: 10px;
     width: 100%;
+    position: relative;
 }
 
 .nav ul {
@@ -57,6 +58,15 @@ body {
 
 .nav li {
     position: relative;
+    border-right: 1px solid #444; 
+}
+
+.dropdown {
+    z-index: 1000; 
+}
+
+.nav li:last-child {
+    border-right: none;
 }
 
 .nav a {
@@ -65,118 +75,109 @@ body {
     font-weight: bold;
     padding: 10px 15px;
     display: block;
+    border-left: 1px solid #444;
 }
 
-/* Dropdown Submenu */
+/* 🔽 Dropdown Submenu */
 .submenu {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background-color: #1f1f1f;
-    border: 1px solid #333;
-    border-radius: 6px;
+    transform: translateX(-50%);
+    background-color: #222;
+    border: 1px solid #444;
     list-style: none;
-    padding: 5px 0;
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 100;
+    z-index: 999; 
     min-width: 120px;
 }
 
-.submenu li a {
-    padding: 10px 15px;
-    text-align: center;
-}
-
-.submenu li a:hover {
-    background-color: #333;
-}
-
-.dropdown:hover .submenu {
+/* .dropdown:hover .submenu {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%);
+} */
+
+.submenu li a {
+    padding: 8px 15px;
+    text-align: center;
+    border: none;
 }
 
-/* Mods Gallery Wrapper (Centering is handled here) */
+/* 📦 Mods Gallery Wrapper */
 .mods-gallery {
     width: 100%;
-    padding: 30px 0;
+    padding: 0 0;
     display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap to the next line */
-    justify-content: center; /* Centers the cards horizontally */
-    gap: 25px; /* Keeps the spacing between the cards */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
 }
 
-/* Card Design (Fixed Height and Uniformity) */
+/* 🃏 Card Design */
 .mod-card {
     background: #1f1f1f;
-    border-radius: 10px;
-    padding-bottom: 15px;
+    border: 1px solid #444;
+    padding-bottom: 0px;
     height: 350px; 
-    width: 300px; 
+    width: 220px; 
     display: flex;
     flex-direction: column; 
     align-items: center; 
     overflow: hidden; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
 }
 
-/* .mod-card:hover {
-    transform: translateY(-5px);
-} */
-
 .mod-card h3 {
-    height: 3em; 
     line-height: 1.5em;
     overflow: hidden;
-    margin-top: 15px;
+    margin: 10px 5px 5px 5px;
     text-align: center;
     font-size: 1.1rem;
 }
 
-/* Description needs more vertical space */
 .mod-card p.mod-description {
     font-size: 0.9em;
     color: #bbb;
-    margin: 0 0 15px 0;
-    max-height: 9em; 
+    margin: 0 10px 10px 10px;
+    max-height: 6em; 
     line-height: 1.5em; 
     overflow: hidden; 
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    width: calc(100% - 20px);
 }
 
 .mod-card img {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-top: 5px;
+    display: block;
 }
 
 .btn {
     display: inline-block;
     background: #ff9f00;
-    padding: 8px 20px;
-    color: #fff;
+    padding: 6px 15px;
+    color: #121212;
     text-decoration: none;
-    border-radius: 5px;
     margin-top: auto; 
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
-.btn:hover {
-    background-color: #e68a00;
+/* 🚫 Unavailable Button Styles */
+.btn-unavailable {
+    background: #6e6e6e; /* Darker, neutral color */
+    color: #444; /* Darker text */
+    cursor: default; /* Change cursor to indicate no action */
+    pointer-events: none; 
 }
 
-/* Contributors Page */
+/* 👥 Contributors Page */
 .contributors {
     padding: 40px 0;
 }
@@ -200,32 +201,32 @@ body {
 .contrib-list img {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     object-fit: cover;
 }
 
-/* Mobile Adjustments (FIXED: Centering single card) */
-@media (max-width: 600px) {
+/* 📱 Mobile Adjustments */
+@media (max-width: 624px) {
     .container {
         width: 95%;
     }
+
+    .mods-gallery {
+        flex-wrap: wrap; 
+        gap: 15px;
+        justify-content: center; 
+    }
     
     .mod-card {
-        /* NEW: Set a smaller width than 100% and use auto margins to center it */
-        width: 60%; 
-        margin: 0 auto; 
-        
-        height: auto;
-        min-height: 400px;
+        width: calc(50% - 10px);
+        min-height: 220px;
     }
     
     .mod-card img {
         height: auto;
-        max-height: 250px;
+        max-height: 200px;
     }
     
     .mod-card p.mod-description {
-        height: auto;
-        max-height: 10em;
+        max-height: 9em;
     }
 }
